@@ -14,6 +14,7 @@ for problem in {a..f}; do
     cat > "$contest_dir/problem_$problem.cpp" <<EOL
 # include <iostream>
 # include <vector>
+# include <map>
 # include <algorithm>
 # include <string>
 # include <cmath>
@@ -33,7 +34,7 @@ makefile="$contest_dir/Makefile"
 cat > "$makefile" <<EOL
 CPP_FILE := problem_a.cpp
 TEST := test.txt
-CPPFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -std=c++11 -Wall -Wextra -Werror
 
 all:
     g++ \$(CPPFLAGS) CPP_FILE && ./a.out < \$(TEST)
